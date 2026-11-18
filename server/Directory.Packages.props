@@ -1,0 +1,10 @@
+<Project>
+  <!-- Central package management: versions live here, PackageReference items carry no Version. -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="MongoDB.Driver" Version="3.14.0" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+  </ItemGroup>
+</Project>

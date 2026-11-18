@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!-- Single project; layering is by folder (Calls, Factories, Services, Validation, Queries, Repositories). -->
+  <PropertyGroup>
+    <!-- Lets `dotnet user-secrets` keep the MongoDB connection string outside the repository. -->
+    <UserSecretsId>task-map-api</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+</Project>
