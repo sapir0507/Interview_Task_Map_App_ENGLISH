@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" width="64" height="40">
+  <!-- Simple side view of a truck: cargo box, cab with window, two wheels. -->
+  <rect x="3" y="7" width="35" height="22" rx="2" fill="#4b5320" stroke="#262b0f" stroke-width="2"/>
+  <path d="M38 13 H50 L59 21 V29 H38 Z" fill="#4b5320" stroke="#262b0f" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M42 16 H49 L54 21 H42 Z" fill="#b3d9f2" stroke="#262b0f" stroke-width="1"/>
+  <circle cx="15" cy="31" r="7" fill="#212121" stroke="#000" stroke-width="1"/>
+  <circle cx="15" cy="31" r="2.5" fill="#9e9e9e"/>
+  <circle cx="49" cy="31" r="7" fill="#212121" stroke="#000" stroke-width="1"/>
+  <circle cx="49" cy="31" r="2.5" fill="#9e9e9e"/>
+</svg>

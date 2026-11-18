@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" width="64" height="40">
+  <!-- Simple side view of a jeep: body, windshield, two wheels. -->
+  <rect x="6" y="14" width="52" height="16" rx="3" fill="#d32f2f" stroke="#7f1d1d" stroke-width="2"/>
+  <path d="M16 14 L22 5 H40 L46 14 Z" fill="#d32f2f" stroke="#7f1d1d" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M24 7.5 H38 L42 14 H21 Z" fill="#b3d9f2" stroke="#7f1d1d" stroke-width="1"/>
+  <circle cx="18" cy="31" r="7" fill="#212121" stroke="#000" stroke-width="1"/>
+  <circle cx="18" cy="31" r="2.5" fill="#9e9e9e"/>
+  <circle cx="46" cy="31" r="7" fill="#212121" stroke="#000" stroke-width="1"/>
+  <circle cx="46" cy="31" r="2.5" fill="#9e9e9e"/>
+</svg>
