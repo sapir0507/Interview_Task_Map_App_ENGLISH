@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 900" width="1520" height="900" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Task Map Application architecture</title>
+<desc id="d">The React client talks over REST and JSON to the ASP.NET Core API, which stores GeoJSON in MongoDB Atlas.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1e293b"/></marker></defs>
+<rect width="1520" height="900" fill="#ffffff"/>
+<text x="20" y="34" font-size="22" font-weight="800" fill="#0f172a">Task Map Application: architecture</text>
+<text x="20" y="54" font-size="13" fill="#475569">Browser, then the Vite dev proxy, then the ASP.NET Core API, then MongoDB Atlas</text>
+<rect x="20" y="62" width="440" height="648" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="40" y="82" font-size="16" font-weight="800" fill="#0f172a">CLIENT</text>
+<text x="40" y="99" font-size="12" fill="#475569">React 19 · TypeScript · MUI · Redux Toolkit (browser, :5173)</text>
+<rect x="40" y="110" width="92" height="60" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="86.0" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Map</text>
+<text x="86.0" y="147" text-anchor="middle" font-size="11.5" fill="#334155">central panel</text>
+<rect x="143" y="110" width="92" height="60" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="189.0" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Polygon</text>
+<text x="189.0" y="147" text-anchor="middle" font-size="11.5" fill="#334155">draw · save</text>
+<rect x="246" y="110" width="92" height="60" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="292.0" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Objects</text>
+<text x="292.0" y="147" text-anchor="middle" font-size="11.5" fill="#334155">place · save</text>
+<rect x="349" y="110" width="92" height="60" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="395.0" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Map Data</text>
+<text x="395.0" y="147" text-anchor="middle" font-size="11.5" fill="#334155">table</text>
+<rect x="40" y="215" width="230" height="85" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="155.0" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Redux Toolkit store</text>
+<text x="155.0" y="252" text-anchor="middle" font-size="11.5" fill="#334155">slices: polygon, objects,</text>
+<text x="155.0" y="269" text-anchor="middle" font-size="11.5" fill="#334155">mapData, notification</text>
+<text x="155.0" y="286" text-anchor="middle" font-size="11.5" fill="#334155">ids + GeoJSON only</text>
+<rect x="300" y="215" width="140" height="85" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="370.0" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">taskMapApi</text>
+<text x="370.0" y="252" text-anchor="middle" font-size="11.5" fill="#334155">RTK Query</text>
+<text x="370.0" y="269" text-anchor="middle" font-size="11.5" fill="#334155">GET · POST · DELETE</text>
+<rect x="40" y="325" width="400" height="65" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="240.0" y="345" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Hooks</text>
+<text x="240.0" y="362" text-anchor="middle" font-size="11.5" fill="#334155">useMapView · useMapInteractions</text>
+<text x="240.0" y="379" text-anchor="middle" font-size="11.5" fill="#334155">useGraphicsSync · useSavedMapData</text>
+<rect x="40" y="415" width="400" height="65" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="240.0" y="435" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Services (pure functions)</text>
+<text x="240.0" y="452" text-anchor="middle" font-size="11.5" fill="#334155">coordinateService: WGS84 ⇄ Web Mercator</text>
+<text x="240.0" y="469" text-anchor="middle" font-size="11.5" fill="#334155">geometryService · mapGraphics · mapSymbols</text>
+<rect x="40" y="505" width="400" height="65" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="240.0" y="525" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">ArcGIS Maps SDK (@arcgis/core)</text>
+<text x="240.0" y="542" text-anchor="middle" font-size="11.5" fill="#334155">MapView + GraphicsLayer, kept in refs, not in Redux</text>
+<text x="240.0" y="559" text-anchor="middle" font-size="11.5" fill="#334155">jeep / truck PictureMarkerSymbol, polygon vertices</text>
+<rect x="40" y="600" width="400" height="60" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="240.0" y="620" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Esri World Street Map tiles</text>
+<text x="240.0" y="637" text-anchor="middle" font-size="11.5" fill="#334155">external service, no API key needed</text>
+<path d="M165 170 V215" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M270 257 H300" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M165 300 V325" fill="none" stroke="#1e293b" stroke-width="1.8" marker-start="url(#a)" marker-end="url(#a)"/>
+<path d="M165 390 V415" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M165 480 V505" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M165 570 V600" fill="none" stroke="#1e293b" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<rect x="620" y="62" width="520" height="778" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="640" y="82" font-size="16" font-weight="800" fill="#0f172a">SERVER</text>
+<text x="640" y="99" font-size="12" fill="#475569">ASP.NET Core · .NET 10 · layered by folder (:5080)</text>
+<rect x="640" y="110" width="480" height="60" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="880.0" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Controllers</text>
+<text x="880.0" y="147" text-anchor="middle" font-size="11.5" fill="#334155">PolygonsController · ObjectsController</text>
+<text x="880.0" y="164" text-anchor="middle" font-size="11.5" fill="#334155">thin: bind, build the call record, call one service</text>
+<rect x="640" y="195" width="480" height="60" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="880.0" y="215" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Call record + Service factory</text>
+<text x="880.0" y="232" text-anchor="middle" font-size="11.5" fill="#334155">GetPolygonsCall, CreatePolygonCall, SaveObjectsCall, ...</text>
+<text x="880.0" y="249" text-anchor="middle" font-size="11.5" fill="#334155">the factory picks the service with a switch on the call</text>
+<rect x="640" y="280" width="480" height="70" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="880.0" y="300" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Service&lt;TCall&gt; (singleton)</text>
+<text x="880.0" y="317" text-anchor="middle" font-size="11.5" fill="#334155">validate, then query, then catch</text>
+<text x="880.0" y="334" text-anchor="middle" font-size="11.5" fill="#334155">answers Response&lt;T&gt;; HTTP status = response.Status</text>
+<rect x="640" y="385" width="230" height="80" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="755.0" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Validation factory</text>
+<text x="755.0" y="422" text-anchor="middle" font-size="11.5" fill="#334155">ValidationServices:</text>
+<text x="755.0" y="439" text-anchor="middle" font-size="11.5" fill="#334155">GeoJSON rules, WKID 4326,</text>
+<text x="755.0" y="456" text-anchor="middle" font-size="11.5" fill="#334155">names, symbolKey</text>
+<rect x="890" y="385" width="230" height="80" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="1005.0" y="405" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">DbQuery factory</text>
+<text x="1005.0" y="422" text-anchor="middle" font-size="11.5" fill="#334155">Polygon / Object factories,</text>
+<text x="1005.0" y="439" text-anchor="middle" font-size="11.5" fill="#334155">query services: the only</text>
+<text x="1005.0" y="456" text-anchor="middle" font-size="11.5" fill="#334155">code that asks for data</text>
+<rect x="890" y="500" width="230" height="50" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="1005.0" y="520" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">DbRepositoryFactory</text>
+<text x="1005.0" y="537" text-anchor="middle" font-size="11.5" fill="#334155">Database:Provider = MongoDb</text>
+<rect x="640" y="585" width="480" height="65" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="880.0" y="605" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Repositories (Mongo)</text>
+<text x="880.0" y="622" text-anchor="middle" font-size="11.5" fill="#334155">MongoPolygonRepository · MongoObjectRepository</text>
+<text x="880.0" y="639" text-anchor="middle" font-size="11.5" fill="#334155">documents ⇄ records; create, read, delete only</text>
+<rect x="640" y="680" width="230" height="50" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="755.0" y="700" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">UnitOfWork</text>
+<text x="755.0" y="717" text-anchor="middle" font-size="11.5" fill="#334155">transaction: SaveObjects all or nothing</text>
+<rect x="890" y="680" width="230" height="50" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="1005.0" y="700" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">MongoDB.Driver</text>
+<text x="1005.0" y="717" text-anchor="middle" font-size="11.5" fill="#334155">GeoJSON types, 5 s server timeout</text>
+<rect x="640" y="760" width="230" height="50" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="755.0" y="780" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Swagger</text>
+<text x="755.0" y="797" text-anchor="middle" font-size="11.5" fill="#334155">Development only: /swagger</text>
+<rect x="890" y="760" width="230" height="50" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+<text x="1005.0" y="780" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">MongoIndexInitializer</text>
+<text x="1005.0" y="797" text-anchor="middle" font-size="11.5" fill="#334155">creates 2dsphere indexes at start</text>
+<path d="M880 170 V195" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M880 255 V280" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M880 350 L755 385" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M880 350 L1005 385" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M1005 465 V500" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M1005 550 V585" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M755 650 V680" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M1005 650 V680" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M440 257 H480 V140 H640" fill="none" stroke="#1e293b" stroke-width="1.8" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="490" y="185" text-anchor="start" font-size="11.5" font-weight="600" fill="#1e293b">REST + JSON</text>
+<text x="490" y="200" text-anchor="start" font-size="11.5" font-weight="600" fill="#1e293b">GeoJSON, WGS84</text>
+<text x="490" y="215" text-anchor="start" font-size="11.5" font-weight="600" fill="#1e293b">[lng, lat]</text>
+<text x="490" y="265" text-anchor="start" font-size="11.5" font-weight="500" fill="#1e293b">Vite proxy:</text>
+<text x="490" y="280" text-anchor="start" font-size="11.5" font-weight="500" fill="#1e293b">/api to :5080</text>
+<text x="490" y="295" text-anchor="start" font-size="11.5" font-weight="500" fill="#1e293b">(no CORS)</text>
+<text x="490" y="330" text-anchor="start" font-size="11" font-weight="500" fill="#1e293b">GET /api/polygons</text>
+<text x="490" y="345" text-anchor="start" font-size="11" font-weight="500" fill="#1e293b">POST /api/polygons</text>
+<text x="490" y="360" text-anchor="start" font-size="11" font-weight="500" fill="#1e293b">DELETE /api/polygons</text>
+<text x="490" y="375" text-anchor="start" font-size="11" font-weight="500" fill="#1e293b">GET /api/objects</text>
+<text x="490" y="390" text-anchor="start" font-size="11" font-weight="500" fill="#1e293b">POST /api/objects</text>
+<text x="490" y="405" text-anchor="start" font-size="11" font-weight="500" fill="#1e293b">DELETE /api/objects/{id}</text>
+<rect x="1290" y="522" width="210" height="318" rx="14" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+<text x="1310" y="542" font-size="16" font-weight="800" fill="#0f172a">DATABASE</text>
+<text x="1310" y="559" font-size="12" fill="#475569">MongoDB Atlas (replica set)</text>
+<rect x="1305" y="575" width="180" height="250" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+<text x="1395" y="597" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">database: taskmap</text>
+<rect x="1320" y="610" width="150" height="95" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="1395.0" y="630" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">polygons</text>
+<text x="1395.0" y="647" text-anchor="middle" font-size="11.5" fill="#334155">_id, name, createdAt</text>
+<text x="1395.0" y="664" text-anchor="middle" font-size="11.5" fill="#334155">geometry: Polygon</text>
+<text x="1395.0" y="681" text-anchor="middle" font-size="11.5" fill="#334155">index: 2dsphere</text>
+<rect x="1320" y="720" width="150" height="95" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+<text x="1395.0" y="740" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">objects</text>
+<text x="1395.0" y="757" text-anchor="middle" font-size="11.5" fill="#334155">_id, name, symbolKey,</text>
+<text x="1395.0" y="774" text-anchor="middle" font-size="11.5" fill="#334155">createdAt, geometry: Point</text>
+<text x="1395.0" y="791" text-anchor="middle" font-size="11.5" fill="#334155">index: 2dsphere</text>
+<path d="M1120 705 H1305" fill="none" stroke="#1e293b" stroke-width="1.8" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="1215" y="671" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">MongoDB wire</text>
+<text x="1215" y="686" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">protocol (TLS)</text>
+<path d="M1120 785 H1305" fill="none" stroke="#1e293b" stroke-width="1.8" marker-end="url(#a)"/>
+<text x="1215" y="773" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">createIndex</text>
+<text x="20" y="878" font-size="12" fill="#475569">Solid arrows: calls and data flow (double-headed: request and reply). Dashed boxes and arrows: external or development-only parts.</text>
+</svg>
