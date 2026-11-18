@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "seed-jeep-1",
+    "name": "Seed Jeep 1",
+    "symbolKey": "jeep",
+    "geometry": { "type": "Point", "coordinates": [34.78, 32.08] },
+    "createdAt": { "$date": "2026-01-01T09:00:02Z" }
+  },
+  {
+    "_id": "seed-truck-1",
+    "name": "Seed Truck 1",
+    "symbolKey": "truck",
+    "geometry": { "type": "Point", "coordinates": [35.00, 31.50] },
+    "createdAt": { "$date": "2026-01-01T09:00:03Z" }
+  }
+]
